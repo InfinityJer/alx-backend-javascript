@@ -1,4 +1,5 @@
 // 0-promise.js
+
 function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
     // You can perform asynchronous operations here
