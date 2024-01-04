@@ -1,23 +1,40 @@
-//100-evcar.js
-import Car from './10-car';
+// 10-car.js
+const cloneSymbol = Symbol('clone');
 
-export default class EVCar extends Car {
-  constructor(brand, motor, color, range) {
-    super(brand, motor, color);
-    this.range = range;
+export default class Car {
+  constructor(brand, motor, color) {
+    // Store attributes in underscore attribute version
+    this._brand = brand;
+    this._motor = motor;
+    this._color = color;
+
+    // Attach the cloneCar method to the instance
+    this[cloneSymbol] = this.cloneCar.bind(this);
   }
 
-  get range() {
-    return this._range;
+  // Getter for brand attribute
+  get brand() {
+    return this._brand;
   }
 
-  set range(value) {
-    this._range = value;
+  // Getter for motor attribute
+  get motor() {
+    return this._motor;
   }
 
+  // Getter for color attribute
+  get color() {
+    return this._color;
+  }
+
+  // Method to clone the car
   cloneCar() {
-    const Species = super.constructor[Symbol.species];
+    // Create a shallow copy of the object using Object.assign
+    const clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
 
-    return new Species();
+    // Detach the cloneCar method from the clone
+    delete clone[cloneSymbol];
+
+    return clone;
   }
 }
