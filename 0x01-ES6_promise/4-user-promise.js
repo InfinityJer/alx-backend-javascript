@@ -6,12 +6,12 @@
  * @param {string} lastName - The last name of the user.
  * @returns {Promise} - Resolved Promise with user information.
  */
-function signUpUser(firstName, lastName) {
-  return Promise.resolve({
-    firstName: firstName,
-    lastName: lastName,
-  });
-}
 
-// Export the function for external use
-export default signUpUser;
+export default function signUpUser(firstName, lastName) {
+  return Promise.resolve(
+    {
+      firstName,
+      lastName,
+    },
+  );
+}
