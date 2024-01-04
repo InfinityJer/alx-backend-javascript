@@ -1,5 +1,5 @@
 // 6-sky_high.js
-import Building from './5-building.js';
+import Building from './5-building'; // Remove the ".js" extension
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
