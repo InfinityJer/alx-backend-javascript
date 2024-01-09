@@ -8,7 +8,7 @@ function getListStudentIds(studentList) {
   }
 
   // Use the map function to extract ids
-  const studentIds = studentList.map(student => student.id);
+  const studentIds = studentList.map((student) => student.id);
 
   // Return the array of student ids
   return studentIds;
