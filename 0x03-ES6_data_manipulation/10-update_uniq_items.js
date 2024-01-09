@@ -4,7 +4,7 @@
 function updateUniqueItems(inputMap) {
   // Check if the argument is a map
   if (!(inputMap instanceof Map)) {
-    throw new Error("Cannot process");
+    throw new Error('Cannot process');
   }
 
   // Iterate through the entries of the map
