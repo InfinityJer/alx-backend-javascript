@@ -1,10 +1,12 @@
-// File: 0-console.js
+/**
+ * Displays a message on the standard output (STDOUT).
+ * @param {String} msg The message to display.
+ * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ */
+const displayMessage = (msg) => {
+  // Log the message to the console
+  console.log(msg);
+};
 
-// Define a function named displayMessage that takes a message parameter
-function displayMessage(message) {
-    // Print the message to the standard output
-    console.log(message);
-}
-
-// Export the displayMessage function to make it accessible from other modules
+// Export the displayMessage function to make it accessible to other modules
 module.exports = displayMessage;
