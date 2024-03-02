@@ -1,14 +1,22 @@
+// Importing the express library for creating an Express application
 const express = require('express');
 
+// Creating an instance of the Express application
 const app = express();
-const port = 7865;
+// Defining the port number for the server
+const PORT = 7865;
 
-app.get('/', (req, res) => {
+// Route handler for the root endpoint
+app.get('/', (_, res) => {
+  // Sending a welcome message as the response
   res.send('Welcome to the payment system');
 });
 
-const server = app.listen(port, () => {
-  console.log(`API available on localhost port ${port}`);
+// Starting the server to listen on the specified port
+app.listen(PORT, () => {
+  // Logging a message indicating that the API is available on the specified port
+  console.log(`API available on localhost port ${PORT}`);
 });
 
-module.exports = server;
+// Exporting the Express application for external usage
+module.exports = app;
