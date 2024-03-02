@@ -20,7 +20,7 @@ const countStudents = (dataPath) => {
     .toString('utf-8')
     .trim()
     .split('\n');
-  
+
   // Initialize an object to hold student groups by field
   const studentGroups = {};
 
