@@ -1,30 +1,32 @@
+// Import the 'express' library for creating the API server
 const express = require('express');
 
+// Create an instance of the Express application
 const app = express();
-const port = 7865;
 
-// Middleware to parse request parameters
-app.use(express.json());
+// Define the port number on which the server will listen
+const PORT = 7865;
 
-// Welcome message route
-app.get('/', (req, res) => {
+// Route handler for the root endpoint
+app.get('/', (_, res) => {
+  // Send a response with a welcome message to the client
   res.send('Welcome to the payment system');
 });
 
-// Cart route with parameter validation using regex
+// Route handler for the '/cart/:id' endpoint with numeric ID
 app.get('/cart/:id(\\d+)', (req, res) => {
-  const { id } = req.params;
+  // Extract the numeric ID parameter from the request URL
+  const id = req.params.id;
+
+  // Send a response with a message indicating the payment methods for the specified cart ID
   res.send(`Payment methods for cart ${id}`);
 });
 
-// Invalid route handler
-app.use((req, res) => {
-  res.status(404).send('Not Found');
+// Start the server and listen for incoming connections on the specified port
+app.listen(PORT, () => {
+  // Log a message to the console indicating that the API server is available
+  console.log(`API available on localhost port ${PORT}`);
 });
 
-// Start the server
-const server = app.listen(port, () => {
-  console.log(`API available on localhost port ${port}`);
-});
-
-module.exports = server;
+// Export the Express application instance for external use
+module.exports = app;
